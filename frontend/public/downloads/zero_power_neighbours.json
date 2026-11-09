@@ -1,0 +1,217 @@
+{
+  "scope": "Exact nearest neighbours within batch-1 zero-power rows, using temperature rounded to 0.01 degrees C.",
+  "zero_power_rows": 4248,
+  "batch_1_power_levels": [
+    0.0,
+    7000.0
+  ],
+  "batch_1_solicitation_metadata": {
+    "max_power_wat": {
+      "unique_values": 1,
+      "min": 7000.0,
+      "max": 7000.0
+    },
+    "start_amplitude_wat": {
+      "unique_values": 1,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "end_amplitude_wat": {
+      "unique_values": 1,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "start_period_hours": {
+      "unique_values": 1,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "end_period_hours": {
+      "unique_values": 1,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "transition_speed": {
+      "unique_values": 1,
+      "min": 14.0,
+      "max": 14.0
+    },
+    "phase_shift": {
+      "unique_values": 1,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "average_fluctuation_wat": {
+      "unique_values": 1,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "prbs_min_duration_hours": {
+      "unique_values": 49951,
+      "min": 2.495265107427258e-05,
+      "max": 1.9999759197235107
+    },
+    "prbs_max_duration_hours": {
+      "unique_values": 49951,
+      "min": 4.990530214854516e-05,
+      "max": 3.9999518394470215
+    },
+    "prbs_probability_on": {
+      "unique_values": 49907,
+      "min": 0.20000125467777252,
+      "max": 0.8999950289726257
+    },
+    "prbs_seed": {
+      "unique_values": 1,
+      "min": 42.0,
+      "max": 42.0
+    }
+  },
+  "metric": "RMS difference over the full 480-point temperature curve; power is identical (all zero).",
+  "thresholds": {
+    "0.01": {
+      "rows_with_neighbour": 939,
+      "median_symmetric_relative_target_difference_percent": {
+        "HLC": 11.047239303588867,
+        "HLC_mit": 17.781444549560547,
+        "HLC_ext": 11.764791488647461,
+        "tau_b": 16.15620231628418,
+        "tau_n": 13.788291931152344,
+        "tau_inf": 20.687923431396484
+      },
+      "max_symmetric_relative_target_difference_percent": {
+        "HLC": 54.43333435058594,
+        "HLC_mit": 74.45812225341797,
+        "HLC_ext": 56.51909637451172,
+        "tau_b": 72.21356964111328,
+        "tau_n": 65.64768981933594,
+        "tau_inf": 98.37370300292969
+      }
+    },
+    "0.05": {
+      "rows_with_neighbour": 4237,
+      "median_symmetric_relative_target_difference_percent": {
+        "HLC": 12.453335762023926,
+        "HLC_mit": 19.797935485839844,
+        "HLC_ext": 12.953262329101562,
+        "tau_b": 17.8397216796875,
+        "tau_n": 15.46635627746582,
+        "tau_inf": 21.5417423248291
+      },
+      "max_symmetric_relative_target_difference_percent": {
+        "HLC": 70.86884307861328,
+        "HLC_mit": 88.78758239746094,
+        "HLC_ext": 73.30070495605469,
+        "tau_b": 92.34249877929688,
+        "tau_n": 80.22355651855469,
+        "tau_inf": 99.00200653076172
+      }
+    },
+    "0.1": {
+      "rows_with_neighbour": 4246,
+      "median_symmetric_relative_target_difference_percent": {
+        "HLC": 12.438255310058594,
+        "HLC_mit": 19.796428680419922,
+        "HLC_ext": 12.997635841369629,
+        "tau_b": 17.76897430419922,
+        "tau_n": 15.451310157775879,
+        "tau_inf": 21.540298461914062
+      },
+      "max_symmetric_relative_target_difference_percent": {
+        "HLC": 70.86884307861328,
+        "HLC_mit": 88.78758239746094,
+        "HLC_ext": 73.30070495605469,
+        "tau_b": 92.34249877929688,
+        "tau_n": 80.22355651855469,
+        "tau_inf": 99.00200653076172
+      }
+    }
+  },
+  "examples": [
+    {
+      "row_indices_zero_based": [
+        3364,
+        23103
+      ],
+      "temperature_RMS_difference_C": 0.00868434763977195,
+      "max_absolute_temperature_difference_C": 0.020000457763671875,
+      "targets": [
+        {
+          "HLC": 284.5970153808594,
+          "HLC_mit": 160.4556884765625,
+          "HLC_ext": 124.14132690429688,
+          "tau_b": 35.02360916137695,
+          "tau_n": 7.755736827850342,
+          "tau_inf": 17.22826385498047
+        },
+        {
+          "HLC": 194.8091278076172,
+          "HLC_mit": 77.64962768554688,
+          "HLC_ext": 117.15950012207031,
+          "tau_b": 74.60809326171875,
+          "tau_n": 14.579577445983887,
+          "tau_inf": 50.581993103027344
+        }
+      ]
+    },
+    {
+      "row_indices_zero_based": [
+        425,
+        40879
+      ],
+      "temperature_RMS_difference_C": 0.009628555477810673,
+      "max_absolute_temperature_difference_C": 0.030000686645507812,
+      "targets": [
+        {
+          "HLC": 193.89700317382812,
+          "HLC_mit": 75.11259460449219,
+          "HLC_ext": 118.78440856933594,
+          "tau_b": 72.72705078125,
+          "tau_n": 15.144806861877441,
+          "tau_inf": 50.3350944519043
+        },
+        {
+          "HLC": 260.13775634765625,
+          "HLC_mit": 133.49966430664062,
+          "HLC_ext": 126.63809967041016,
+          "tau_b": 34.32401657104492,
+          "tau_n": 8.843417167663574,
+          "tau_inf": 20.258359909057617
+        }
+      ]
+    },
+    {
+      "row_indices_zero_based": [
+        29830,
+        16533
+      ],
+      "temperature_RMS_difference_C": 0.009497886098800012,
+      "max_absolute_temperature_difference_C": 0.020000457763671875,
+      "targets": [
+        {
+          "HLC": 184.26124572753906,
+          "HLC_mit": 86.71633911132812,
+          "HLC_ext": 97.54490661621094,
+          "tau_b": 86.29742431640625,
+          "tau_n": 18.54433822631836,
+          "tau_inf": 57.336795806884766
+        },
+        {
+          "HLC": 267.3829040527344,
+          "HLC_mit": 171.12428283691406,
+          "HLC_ext": 96.25863647460938,
+          "tau_b": 41.87698745727539,
+          "tau_n": 9.537199020385742,
+          "tau_inf": 24.782428741455078
+        }
+      ]
+    }
+  ],
+  "cautions": [
+    "Thresholds are exploratory, not acceptance/rejection criteria.",
+    "RMS similarity does not mean every individual reading differs by less than that threshold.",
+    "Similar observable inputs with different targets may indicate limited identifiability, not mislabeled data.",
+    "Counts are rows with a close neighbour; reciprocal pairs can occur twice.",
+    "Only the zero-power subset of batch 1 was searched; this is not a full-dataset search."
+  ]
+}

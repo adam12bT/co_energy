@@ -1,0 +1,724 @@
+{
+  "selected_by_validation": "tcn",
+  "test_evaluated": false,
+  "labels": [
+    "HLC",
+    "HLC_mit",
+    "HLC_ext",
+    "tau_b",
+    "tau_n",
+    "tau_inf"
+  ],
+  "models": {
+    "mean_baseline": {
+      "parameters": 0,
+      "training_seconds": 0.0,
+      "validation": {
+        "all": {
+          "rows": 4999,
+          "macro_NRMSE_training_SD": 1.0007840175673082,
+          "per_target": {
+            "HLC": {
+              "MAE": 24.959118392281972,
+              "RMSE": 31.044044429839822,
+              "MAPE_percent": 11.077135020718686,
+              "R2": -0.0005987471973121217,
+              "NRMSE_training_SD": 0.9899372097411904
+            },
+            "HLC_mit": {
+              "MAE": 21.229365090700025,
+              "RMSE": 26.129365210396244,
+              "MAPE_percent": 19.01887061953745,
+              "R2": -0.0002922583485696073,
+              "NRMSE_training_SD": 0.9923250761776811
+            },
+            "HLC_ext": {
+              "MAE": 13.866306117974084,
+              "RMSE": 17.068088734475214,
+              "MAPE_percent": 12.871286970187109,
+              "R2": -0.0003359085411194229,
+              "NRMSE_training_SD": 0.9955564623623918
+            },
+            "tau_b": {
+              "MAE": 7.999652963658527,
+              "RMSE": 10.16076368582695,
+              "MAPE_percent": 16.505227199821135,
+              "R2": -5.166840899795133e-06,
+              "NRMSE_training_SD": 1.0102280681807427
+            },
+            "tau_n": {
+              "MAE": 1.5818495579685394,
+              "RMSE": 2.0217032921835325,
+              "MAPE_percent": 14.507607417271384,
+              "R2": -0.00021910875399688834,
+              "NRMSE_training_SD": 1.0073841803544765
+            },
+            "tau_inf": {
+              "MAE": 5.910874821563128,
+              "RMSE": 7.558238248504008,
+              "MAPE_percent": 19.78248506067866,
+              "R2": -5.460820553526702e-07,
+              "NRMSE_training_SD": 1.009273108587366
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 0.0
+          }
+        },
+        "zero_power": {
+          "rows": 424,
+          "macro_NRMSE_training_SD": 0.9808054913485597,
+          "per_target": {
+            "HLC": {
+              "MAE": 24.854319950319685,
+              "RMSE": 30.815680114009712,
+              "MAPE_percent": 11.057309363878808,
+              "R2": -0.00026893623160995084,
+              "NRMSE_training_SD": 0.9826550937099423
+            },
+            "HLC_mit": {
+              "MAE": 20.82948644206209,
+              "RMSE": 25.65288051062958,
+              "MAPE_percent": 18.885232438662474,
+              "R2": -0.0011391387854950974,
+              "NRMSE_training_SD": 0.9742294312132436
+            },
+            "HLC_ext": {
+              "MAE": 13.821948267378897,
+              "RMSE": 17.144039435709256,
+              "MAPE_percent": 12.617374530527648,
+              "R2": -0.0004412173822918586,
+              "NRMSE_training_SD": 0.9999865548355916
+            },
+            "tau_b": {
+              "MAE": 7.67086162657108,
+              "RMSE": 9.812400918337602,
+              "MAPE_percent": 15.59003587375092,
+              "R2": -0.0005999450416713792,
+              "NRMSE_training_SD": 0.9755923009777562
+            },
+            "tau_n": {
+              "MAE": 1.5476936630482943,
+              "RMSE": 1.9718002601557343,
+              "MAPE_percent": 14.270602584601633,
+              "R2": -9.835018968118447e-06,
+              "NRMSE_training_SD": 0.9825182540779104
+            },
+            "tau_inf": {
+              "MAE": 5.679873860107278,
+              "RMSE": 7.263016550229298,
+              "MAPE_percent": 18.922238173705487,
+              "R2": -2.6012279280784867e-05,
+              "NRMSE_training_SD": 0.9698513132769135
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 0.0
+          }
+        },
+        "powered": {
+          "rows": 4575,
+          "macro_NRMSE_training_SD": 1.0026040757389418,
+          "per_target": {
+            "HLC": {
+              "MAE": 24.96883085990864,
+              "RMSE": 31.06512368542557,
+              "MAPE_percent": 11.07897241492636,
+              "R2": -0.0006356197475305692,
+              "NRMSE_training_SD": 0.9906093882488953
+            },
+            "HLC_mit": {
+              "MAE": 21.26642488239893,
+              "RMSE": 26.173085452746193,
+              "MAPE_percent": 19.031255884825097,
+              "R2": -0.00024285626752562628,
+              "NRMSE_training_SD": 0.9939854568440724
+            },
+            "HLC_ext": {
+              "MAE": 13.870417096914489,
+              "RMSE": 17.061032686450037,
+              "MAPE_percent": 12.894818964594892,
+              "R2": -0.00048366429257007404,
+              "NRMSE_training_SD": 0.9951448934796958
+            },
+            "tau_b": {
+              "MAE": 8.030124554243244,
+              "RMSE": 10.192446259904562,
+              "MAPE_percent": 16.5900449314613,
+              "R2": -8.484262425945133e-08,
+              "NRMSE_training_SD": 1.0133780898321727
+            },
+            "tau_n": {
+              "MAE": 1.5850150441862847,
+              "RMSE": 2.026265956961694,
+              "MAPE_percent": 14.529572455315531,
+              "R2": -0.0002513854627621548,
+              "NRMSE_training_SD": 1.0096576872214589
+            },
+            "tau_inf": {
+              "MAE": 5.932283435258709,
+              "RMSE": 7.585016903863906,
+              "MAPE_percent": 19.862210673810164,
+              "R2": -1.5805881430352997e-06,
+              "NRMSE_training_SD": 1.0128489388073545
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 0.0
+          }
+        }
+      }
+    },
+    "mlp": {
+      "parameters": 131589,
+      "training_seconds": 20.0668285000138,
+      "best_epoch": 5,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9044344916527739,
+          "validation_macro_NRMSE": 0.950864189927604,
+          "seconds": 2.8591188000282273
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.8921807574532067,
+          "validation_macro_NRMSE": 0.9526602695722293,
+          "seconds": 2.181330199993681
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.890565416564477,
+          "validation_macro_NRMSE": 0.9493962930526513,
+          "seconds": 2.3617629999644123
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.8886239995068833,
+          "validation_macro_NRMSE": 0.9511188849123018,
+          "seconds": 2.311459999997169
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.8861029166578323,
+          "validation_macro_NRMSE": 0.9450875568134623,
+          "seconds": 2.0378334999550134
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.8839048742204957,
+          "validation_macro_NRMSE": 0.947205887010124,
+          "seconds": 2.099264700023923
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.883448700339584,
+          "validation_macro_NRMSE": 0.9467281268564937,
+          "seconds": 2.0552685000002384
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.8822635501439878,
+          "validation_macro_NRMSE": 0.9469879888464948,
+          "seconds": 2.0530676000053063
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.8799809568506808,
+          "validation_macro_NRMSE": 0.9468965283322522,
+          "seconds": 2.0799120999872684
+        }
+      ],
+      "validation": {
+        "all": {
+          "rows": 4999,
+          "macro_NRMSE_training_SD": 0.9450875568134623,
+          "per_target": {
+            "HLC": {
+              "MAE": 21.259815229037017,
+              "RMSE": 26.71022476134785,
+              "MAPE_percent": 9.354445077792644,
+              "R2": 0.2592725361510493,
+              "NRMSE_training_SD": 0.851739709095152
+            },
+            "HLC_mit": {
+              "MAE": 18.634146132357575,
+              "RMSE": 23.153051997455087,
+              "MAPE_percent": 16.445629808666023,
+              "R2": 0.2146094277131021,
+              "NRMSE_training_SD": 0.8792924704492664
+            },
+            "HLC_ext": {
+              "MAE": 13.513745534751482,
+              "RMSE": 16.645580777042838,
+              "MAPE_percent": 12.507997078133199,
+              "R2": 0.04857626842215146,
+              "NRMSE_training_SD": 0.9709121958621995
+            },
+            "tau_b": {
+              "MAE": 7.9230462223273515,
+              "RMSE": 10.15920031573724,
+              "MAPE_percent": 16.111188446085713,
+              "R2": 0.0003025379620772428,
+              "NRMSE_training_SD": 1.0100726310114103
+            },
+            "tau_n": {
+              "MAE": 1.4820612502780097,
+              "RMSE": 1.9107285498080757,
+              "MAPE_percent": 13.29579190230001,
+              "R2": 0.10657459783348955,
+              "NRMSE_training_SD": 0.9520871442759499
+            },
+            "tau_inf": {
+              "MAE": 5.824020473688549,
+              "RMSE": 7.536880819525267,
+              "MAPE_percent": 19.04244206626549,
+              "R2": 0.005642902805826799,
+              "NRMSE_training_SD": 1.0064211901867952
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 1.52587890625e-05
+          }
+        },
+        "zero_power": {
+          "rows": 424,
+          "macro_NRMSE_training_SD": 0.9636575053696844,
+          "per_target": {
+            "HLC": {
+              "MAE": 24.30678335225807,
+              "RMSE": 29.949911947884335,
+              "MAPE_percent": 10.722956413417661,
+              "R2": 0.05514673704646045,
+              "NRMSE_training_SD": 0.9550473467685324
+            },
+            "HLC_mit": {
+              "MAE": 19.71721781424756,
+              "RMSE": 24.54981068987012,
+              "MAPE_percent": 17.81879631488635,
+              "R2": 0.08310741901911312,
+              "NRMSE_training_SD": 0.9323377191452092
+            },
+            "HLC_ext": {
+              "MAE": 13.835954414223725,
+              "RMSE": 17.231586099095278,
+              "MAPE_percent": 12.471836399010948,
+              "R2": -0.010684884817493856,
+              "NRMSE_training_SD": 1.0050930226919588
+            },
+            "tau_b": {
+              "MAE": 7.6010377407073975,
+              "RMSE": 9.757321496651755,
+              "MAPE_percent": 15.29873701476625,
+              "R2": 0.010601755102761734,
+              "NRMSE_training_SD": 0.970116061249455
+            },
+            "tau_n": {
+              "MAE": 1.5162160857668463,
+              "RMSE": 1.9212002391820258,
+              "MAPE_percent": 13.978407775634352,
+              "R2": 0.050655811448450994,
+              "NRMSE_training_SD": 0.957305028748755
+            },
+            "tau_inf": {
+              "MAE": 5.557584985247198,
+              "RMSE": 7.204563071911148,
+              "MAPE_percent": 18.017331022459313,
+              "R2": 0.0160058314062006,
+              "NRMSE_training_SD": 0.9620458536141965
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 7.62939453125e-06
+          }
+        },
+        "powered": {
+          "rows": 4575,
+          "macro_NRMSE_training_SD": 0.9431922299043319,
+          "per_target": {
+            "HLC": {
+              "MAE": 20.977429549420467,
+              "RMSE": 26.38984849620514,
+              "MAPE_percent": 9.227614737616685,
+              "R2": 0.27788963604586414,
+              "NRMSE_training_SD": 0.8415235020316861
+            },
+            "HLC_mit": {
+              "MAE": 18.533769652986788,
+              "RMSE": 23.019312876549623,
+              "MAPE_percent": 16.31836803847205,
+              "R2": 0.22628623418979954,
+              "NRMSE_training_SD": 0.8742134077827288
+            },
+            "HLC_ext": {
+              "MAE": 13.483883990511869,
+              "RMSE": 16.590223182139596,
+              "MAPE_percent": 12.511348362930539,
+              "R2": 0.053972352326145945,
+              "NRMSE_training_SD": 0.96768326893288
+            },
+            "tau_b": {
+              "MAE": 7.952889194175845,
+              "RMSE": 10.195643439741009,
+              "MAPE_percent": 16.186484491305265,
+              "R2": -0.00062754590034797,
+              "NRMSE_training_SD": 1.0136959675931037
+            },
+            "tau_n": {
+              "MAE": 1.4788958622458204,
+              "RMSE": 1.9097551514984368,
+              "MAPE_percent": 13.232528704421592,
+              "R2": 0.11147092001942904,
+              "NRMSE_training_SD": 0.9516021146169958
+            },
+            "tau_inf": {
+              "MAE": 5.848713074147375,
+              "RMSE": 7.566940300956145,
+              "MAPE_percent": 19.137446893057582,
+              "R2": 0.004759144827599093,
+              "NRMSE_training_SD": 1.010435118468597
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 1.52587890625e-05
+          }
+        }
+      }
+    },
+    "tcn": {
+      "parameters": 10517,
+      "training_seconds": 630.3908498000237,
+      "timing_note": "Sum of complete epoch times, including their validation passes; excludes any interrupted partial next epoch and checkpoint I/O.",
+      "best_epoch": 4,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.93066857910223,
+          "validation_macro_NRMSE": 0.9523997316746987,
+          "seconds": 123.39585279999301
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.8961611297373641,
+          "validation_macro_NRMSE": 0.9530768993752136,
+          "seconds": 125.81225610000547
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.89118915190727,
+          "validation_macro_NRMSE": 0.9473502930791987,
+          "seconds": 130.35821680002846
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.887216853520899,
+          "validation_macro_NRMSE": 0.9445711153339186,
+          "seconds": 125.77912810002454
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.8847546455866218,
+          "validation_macro_NRMSE": 0.9469570209352923,
+          "seconds": 125.04539599997224
+        }
+      ],
+      "stopping_reason": "Pilot runtime cap: five completed TCN epochs, approximately ten minutes. A partial next epoch, if any, was discarded.",
+      "validation": {
+        "all": {
+          "rows": 4999,
+          "macro_NRMSE_training_SD": 0.9445711153339186,
+          "per_target": {
+            "HLC": {
+              "MAE": 21.24767770937,
+              "RMSE": 26.65549308263032,
+              "MAPE_percent": 9.359452414159861,
+              "R2": 0.26230506182759017,
+              "NRMSE_training_SD": 0.8499944170009942
+            },
+            "HLC_mit": {
+              "MAE": 18.642668544542648,
+              "RMSE": 23.125309992871724,
+              "MAPE_percent": 16.500766712446925,
+              "R2": 0.21649041130648328,
+              "NRMSE_training_SD": 0.8782389015397334
+            },
+            "HLC_ext": {
+              "MAE": 13.507114159343098,
+              "RMSE": 16.641617820151193,
+              "MAPE_percent": 12.489079744826283,
+              "R2": 0.04902924179118151,
+              "NRMSE_training_SD": 0.9706810424269838
+            },
+            "tau_b": {
+              "MAE": 7.908389597612516,
+              "RMSE": 10.192714340758931,
+              "MAPE_percent": 15.937818482900157,
+              "R2": -0.006304113631143471,
+              "NRMSE_training_SD": 1.0134047436164748
+            },
+            "tau_n": {
+              "MAE": 1.4805660253525925,
+              "RMSE": 1.9004212988319065,
+              "MAPE_percent": 13.374071418818378,
+              "R2": 0.11618760324106592,
+              "NRMSE_training_SD": 0.9469511969702888
+            },
+            "tau_inf": {
+              "MAE": 5.808730011726527,
+              "RMSE": 7.549875376577563,
+              "MAPE_percent": 18.882304924111004,
+              "R2": 0.002211146546132081,
+              "NRMSE_training_SD": 1.0081563904490365
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 1.52587890625e-05
+          }
+        },
+        "zero_power": {
+          "rows": 424,
+          "macro_NRMSE_training_SD": 0.9643575484405646,
+          "per_target": {
+            "HLC": {
+              "MAE": 24.263343523133475,
+              "RMSE": 30.005854766845957,
+              "MAPE_percent": 10.779946728662685,
+              "R2": 0.0516136968773544,
+              "NRMSE_training_SD": 0.9568312598869756
+            },
+            "HLC_mit": {
+              "MAE": 19.85279775115679,
+              "RMSE": 24.6467031846612,
+              "MAPE_percent": 18.067558932767376,
+              "R2": 0.0758556054419619,
+              "NRMSE_training_SD": 0.936017443145406
+            },
+            "HLC_ext": {
+              "MAE": 13.807447343502405,
+              "RMSE": 17.161081952070713,
+              "MAPE_percent": 12.537070244908927,
+              "R2": -0.0024312396771641875,
+              "NRMSE_training_SD": 1.0009806196991222
+            },
+            "tau_b": {
+              "MAE": 7.58241672785777,
+              "RMSE": 9.8078156741299,
+              "MAPE_percent": 15.121322390757907,
+              "R2": 0.00033497866895970674,
+              "NRMSE_training_SD": 0.9751364157174244
+            },
+            "tau_n": {
+              "MAE": 1.5000442615095175,
+              "RMSE": 1.9180800984035111,
+              "MAPE_percent": 13.689038653005554,
+              "R2": 0.05373688769870044,
+              "NRMSE_training_SD": 0.9557503097784159
+            },
+            "tau_inf": {
+              "MAE": 5.547078980589813,
+              "RMSE": 7.199945397762613,
+              "MAPE_percent": 17.99008694639911,
+              "R2": 0.01726678457017039,
+              "NRMSE_training_SD": 0.9614292424160434
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 7.62939453125e-06
+          }
+        },
+        "powered": {
+          "rows": 4575,
+          "macro_NRMSE_training_SD": 0.9425513263854651,
+          "per_target": {
+            "HLC": {
+              "MAE": 20.968193052531593,
+              "RMSE": 26.323407200016188,
+              "MAPE_percent": 9.227804416487906,
+              "R2": 0.28152115002940137,
+              "NRMSE_training_SD": 0.8394048118748824
+            },
+            "HLC_mit": {
+              "MAE": 18.53051667927393,
+              "RMSE": 22.979211326104693,
+              "MAPE_percent": 16.355560176618315,
+              "R2": 0.2289796330646856,
+              "NRMSE_training_SD": 0.8726904555877678
+            },
+            "HLC_ext": {
+              "MAE": 13.479280001947789,
+              "RMSE": 16.592651713488912,
+              "MAPE_percent": 12.484632100665618,
+              "R2": 0.05369536678723186,
+              "NRMSE_training_SD": 0.9678249215875195
+            },
+            "tau_b": {
+              "MAE": 7.93859997942148,
+              "RMSE": 10.22765242850993,
+              "MAPE_percent": 16.013489377559896,
+              "R2": -0.0069203028691073865,
+              "NRMSE_training_SD": 1.0168784428369235
+            },
+            "tau_n": {
+              "MAE": 1.4787608292584862,
+              "RMSE": 1.8987764083223317,
+              "MAPE_percent": 13.34488101285218,
+              "R2": 0.12165745428165897,
+              "NRMSE_training_SD": 0.9461315729017288
+            },
+            "tau_inf": {
+              "MAE": 5.8329792001859735,
+              "RMSE": 7.5814882944114945,
+              "MAPE_percent": 18.964993541061784,
+              "R2": 0.0009286201759914903,
+              "NRMSE_training_SD": 1.0123777535239677
+            }
+          },
+          "physical_output_checks": {
+            "nonpositive_values": 0,
+            "nonfinite_values": 0,
+            "max_absolute_HLC_sum_residual": 1.52587890625e-05
+          }
+        }
+      }
+    }
+  },
+  "config": {
+    "seed": 20261103,
+    "scope": "Pilot on retained batch 1 only (50,000 simulations; 5% of full dataset)",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "numpy": "1.26.4",
+    "source_sha256": "00abb85f8447b9a3728f7146960c95db8a4dd883680a6f07afc7a527098ff99f",
+    "split": {
+      "train": {
+        "rows": 40002,
+        "zero_power": 3400,
+        "powered": 36602,
+        "groups": 39544
+      },
+      "validation": {
+        "rows": 4999,
+        "zero_power": 424,
+        "powered": 4575,
+        "groups": 4943
+      },
+      "test": {
+        "rows": 4999,
+        "zero_power": 424,
+        "powered": 4575,
+        "groups": 4943
+      }
+    },
+    "grouping": {
+      "method": "Connected components of rounded temperature RMS <= 0.01 C within identical rounded power curves",
+      "scope": "All 50,000 pilot rows; not all one million simulations",
+      "groups": 49430,
+      "largest_group": 15,
+      "rows_in_nontrivial_groups": 939,
+      "verified_similarity_edges": 614,
+      "rms_threshold_C": 0.01,
+      "maximum_direct_distance_verification_error": 0.0
+    },
+    "scaling": {
+      "input_mean": [
+        [
+          [
+            30.57057762145996
+          ],
+          [
+            3287.1953125
+          ]
+        ]
+      ],
+      "input_std": [
+        [
+          [
+            4.781118869781494
+          ],
+          [
+            3493.52490234375
+          ]
+        ]
+      ],
+      "log_mean": [
+        5.442674160003662,
+        4.768336772918701,
+        4.711614608764648,
+        3.8913238048553467,
+        2.3848190307617188,
+        3.412696123123169
+      ],
+      "log_std": [
+        0.1356143057346344,
+        0.22248657047748566,
+        0.15515713393688202,
+        0.19730226695537567,
+        0.17734426259994507,
+        0.23359315097332
+      ],
+      "raw_target_std": [
+        31.359609603881836,
+        26.331457138061523,
+        17.144269943237305,
+        10.057890892028809,
+        2.0068840980529785,
+        7.488793849945068
+      ]
+    },
+    "maximum_epochs": 12,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 4,
+    "selection": "Lowest validation macro RMSE divided by training target SD, across all six indicators",
+    "loss": "Equal mean squared standardized log errors across all six indicators; HLC is derived from its two positive components",
+    "test_evaluated": false,
+    "raw_data_cleaned": false,
+    "limitations": [
+      "No building/configuration IDs; grouping nearby observable inputs cannot establish independent physical configurations.",
+      "Same heating protocols may occur in different splits with different temperature responses. This pilot estimates in-distribution performance, not unseen-protocol generalization.",
+      "Grouping threshold is an exploratory 0.01 C RMS criterion, not a proof of physical equivalence.",
+      "Sampling interval and boundary conditions remain unknown.",
+      "Single training seed and bounded epoch budget; this is not a final architecture ranking.",
+      "Used installed Python environment, not an independently uv-synchronized environment.",
+      "TCN capped at five completed epochs after observed per-epoch runtime; original maximum was 12. MLP stopped using validation patience. Unequal epoch/compute budgets prevent a definitive architecture comparison."
+    ],
+    "runtime_budget_note": "TCN capped at five completed epochs after observed per-epoch runtime; original maximum was 12. MLP stopped using validation patience. Unequal epoch/compute budgets prevent a definitive architecture comparison."
+  },
+  "finalization": "Restored and independently verified best completed checkpoint after runtime cap",
+  "source_code_sha256": {
+    "reports\\pilot\\source\\finalize_pilot_original.py": "3557fd48f25c9df1ee609b7a52c6e1a858b7ad6d5fc684916131f34055bd048a",
+    "reports\\pilot\\source\\pilot_original.py": "7f62a16f677029814b4cf29a5df63035f1bdc3489e00e9a0b0ffa58129fc1eb6",
+    "reports\\pilot\\source\\train_pilot_original.py": "e9cdca489296bf94bad50c651bf01fc2c405df90c7c8ab5545e465932a158dee"
+  },
+  "cpu_inference_benchmark": {
+    "model": "tcn",
+    "device": "CPU",
+    "threads": 4,
+    "batch_size": 128,
+    "repeats": 5,
+    "median_batch_seconds": 0.027342099987436086,
+    "amortized_milliseconds_per_row": 0.21361015615184442,
+    "finite_positive_outputs": true,
+    "note": "Warm forward inference only; excludes loading, preprocessing, transfers and startup. Batch throughput is not single-record latency."
+  },
+  "source_snapshot_note": "Exact source snapshots from the executed run. The maintained runner may gain CLI controls; snapshots retain original code identity."
+}

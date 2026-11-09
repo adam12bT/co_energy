@@ -1,0 +1,103 @@
+{
+  "seed": 20261103,
+  "scope": "Pilot on retained batch 1 only (50,000 simulations; 5% of full dataset)",
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.6.0+cu124",
+  "numpy": "1.26.4",
+  "source_sha256": "00abb85f8447b9a3728f7146960c95db8a4dd883680a6f07afc7a527098ff99f",
+  "split": {
+    "train": {
+      "rows": 40002,
+      "zero_power": 3400,
+      "powered": 36602,
+      "groups": 39544
+    },
+    "validation": {
+      "rows": 4999,
+      "zero_power": 424,
+      "powered": 4575,
+      "groups": 4943
+    },
+    "test": {
+      "rows": 4999,
+      "zero_power": 424,
+      "powered": 4575,
+      "groups": 4943
+    }
+  },
+  "grouping": {
+    "method": "Connected components of rounded temperature RMS <= 0.01 C within identical rounded power curves",
+    "scope": "All 50,000 pilot rows; not all one million simulations",
+    "groups": 49430,
+    "largest_group": 15,
+    "rows_in_nontrivial_groups": 939,
+    "verified_similarity_edges": 614,
+    "rms_threshold_C": 0.01,
+    "maximum_direct_distance_verification_error": 0.0
+  },
+  "scaling": {
+    "input_mean": [
+      [
+        [
+          30.57057762145996
+        ],
+        [
+          3287.1953125
+        ]
+      ]
+    ],
+    "input_std": [
+      [
+        [
+          4.781118869781494
+        ],
+        [
+          3493.52490234375
+        ]
+      ]
+    ],
+    "log_mean": [
+      5.442674160003662,
+      4.768336772918701,
+      4.711614608764648,
+      3.8913238048553467,
+      2.3848190307617188,
+      3.412696123123169
+    ],
+    "log_std": [
+      0.1356143057346344,
+      0.22248657047748566,
+      0.15515713393688202,
+      0.19730226695537567,
+      0.17734426259994507,
+      0.23359315097332
+    ],
+    "raw_target_std": [
+      31.359609603881836,
+      26.331457138061523,
+      17.144269943237305,
+      10.057890892028809,
+      2.0068840980529785,
+      7.488793849945068
+    ]
+  },
+  "maximum_epochs": 12,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "early_stopping_patience": 4,
+  "selection": "Lowest validation macro RMSE divided by training target SD, across all six indicators",
+  "loss": "Equal mean squared standardized log errors across all six indicators; HLC is derived from its two positive components",
+  "test_evaluated": false,
+  "raw_data_cleaned": false,
+  "limitations": [
+    "No building/configuration IDs; grouping nearby observable inputs cannot establish independent physical configurations.",
+    "Same heating protocols may occur in different splits with different temperature responses. This pilot estimates in-distribution performance, not unseen-protocol generalization.",
+    "Grouping threshold is an exploratory 0.01 C RMS criterion, not a proof of physical equivalence.",
+    "Sampling interval and boundary conditions remain unknown.",
+    "Single training seed and bounded epoch budget; this is not a final architecture ranking.",
+    "Used installed Python environment, not an independently uv-synchronized environment."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "examples": 176,
+  "batches": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "selection": "Fixed row positions plus first available partition members, never selected by prediction error.",
+  "sha256": "230925d16de394c3ccba6ba77d0ca2808ce961f1888f46ff21df7151ae3c8749"
+}

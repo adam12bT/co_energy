@@ -1,0 +1,40 @@
+{
+  "seed": 20261103,
+  "split": {
+    "train": {
+      "rows": 753343,
+      "zero_power": 20673,
+      "powered": 732670,
+      "groups": 747994
+    },
+    "validation": {
+      "rows": 94160,
+      "zero_power": 2577,
+      "powered": 91583,
+      "groups": 93491
+    },
+    "test": {
+      "rows": 149755,
+      "zero_power": 58172,
+      "powered": 91583,
+      "groups": 91677
+    },
+    "set_aside_prior_pilot_rows": {
+      "rows": 2742,
+      "zero_power": 2742,
+      "powered": 0,
+      "groups": 7
+    }
+  },
+  "verified_near_edges": 254397,
+  "candidate_pairs": 480744,
+  "total_groups": 933162,
+  "largest_group": 60625,
+  "method": "Global same-power connected components, complete 480-point integer-temperature RMS <= 0.01 C; block-average KD-tree candidates verified on full curves",
+  "pilot_protection": "All original test rows stay test. Components prioritize test then validation. Previously explored pilot rows in conflicting heldout components are set aside, not relabeled as unseen test data.",
+  "limits": [
+    "Connected components can contain distant curves through chains; these are not physical building IDs.",
+    "Same heating protocol with different responses can occur in different partitions.",
+    "Protected cohorts and large components can prevent exact 80/10/10 ratios or balanced zero-power counts."
+  ]
+}

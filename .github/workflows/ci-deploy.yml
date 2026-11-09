@@ -1,0 +1,105 @@
+name: CI and Hugging Face deployment
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: coenergy-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  checks:
+    name: Tests, build, and CPU container smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: deployment/requirements-runtime.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install CPU Python dependencies
+        run: pip install -r deployment/requirements-runtime.txt httpx==0.28.1
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Frontend interaction and data tests
+        working-directory: frontend
+        run: npm test
+      - name: Production React build
+        working-directory: frontend
+        env:
+          VITE_DATA_MODE: api
+          VITE_API_BASE_URL: /api/v1
+        run: npm run build
+      - name: Generate complete quality registry
+        run: node frontend/scripts/export-api-checks.mjs
+      - name: Python regression and real-checkpoint API tests
+        run: python -m unittest discover -s tests -v
+      - name: Prepare allowlisted Space source
+        run: python scripts/prepare_hf_bundle.py --output "${RUNNER_TEMP}/hf-space"
+      - name: Build CPU deployment image
+        run: docker build -t coenergy-ci "${RUNNER_TEMP}/hf-space"
+      - name: Start single-port app
+        run: docker run -d --name coenergy-ci -p 7860:7860 coenergy-ci
+      - name: Smoke test actual container
+        run: python scripts/smoke_deployment.py
+      - name: Container logs
+        if: always()
+        run: docker logs coenergy-ci 2>/dev/null || true
+      - name: Stop smoke container
+        if: always()
+        run: docker rm -f coenergy-ci 2>/dev/null || true
+      - name: Retain tested deployment bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: tested-hf-space
+          path: ${{ runner.temp }}/hf-space
+          include-hidden-files: true
+          retention-days: 3
+
+  deploy:
+    name: Update existing Hugging Face Space
+    needs: checks
+    if: >-
+      github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+      vars.HF_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: tested-hf-space
+          path: ${{ runner.temp }}/hf-space
+      - name: Install Hub client
+        run: pip install huggingface-hub==1.28.0
+      - name: Commit tested source to the existing Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: python scripts/deploy_huggingface.py --bundle "${RUNNER_TEMP}/hf-space"
+      - name: Check Hugging Face rebuild and live app
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python scripts/wait_huggingface.py

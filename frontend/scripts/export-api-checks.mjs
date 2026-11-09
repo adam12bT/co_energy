@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {buildQualityChecks} from '../src/domain/quality-registry.js';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const snapshot=JSON.parse(await fs.readFile(path.join(root,'frontend/public/data/audit-data.json'),'utf8'));
+const result=Object.fromEntries(['all',...Array.from({length:20},(_,i)=>String(i+1))].map(scope=>[scope,buildQualityChecks(snapshot,scope)]));
+await fs.mkdir(path.join(root,'reports/api'),{recursive:true});
+await fs.writeFile(path.join(root,'reports/api/quality-checks.json'),JSON.stringify(result));
+console.log('Prepared complete check registry for the local API.');
