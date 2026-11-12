@@ -1,7 +1,11 @@
 import Papa from 'papaparse';
-import type { PredictionRequest, PredictionResponse } from '../types';
+import type { Curve, PredictionRequest, PredictionResponse } from '../types';
 import { targets } from './format';
 export interface Recording {temperature:number[];power:number[]}
+export function getPredictionExamples(curves:Curve[],requestedId?:string|null){
+  const items=curves.filter(curve=>curve.partition==='test');
+  return {items,initial:items.find(curve=>curve.id===requestedId)??items[0]};
+}
 export function validateRecording(input:unknown):{recording?:Recording;errors:string[]}{
   const errors:string[]=[];
   if(!input||typeof input!=='object')return {errors:['Provide a JSON object with temperature and power arrays.']};

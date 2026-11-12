@@ -13,7 +13,7 @@ import { recording,response,snapshot } from './fixtures';
 function view(path='/overview',service:DataService=new SnapshotService('',snapshot)){return render(<MemoryRouter initialEntries={[path]}><DataProvider initialSnapshot={snapshot} service={service}><App/></DataProvider></MemoryRouter>);}
 function apiFixture(fail=false):DataService{
   const s=new SnapshotService('',snapshot);
-  return {mode:'api',getSnapshot:s.getSnapshot.bind(s),getHealth:async()=>({status:'ok',model_loaded:true,prediction_available:true,active_model_id:'tcn-full'}),getModels:async()=>{const m=await s.getModels();return {...m,items:m.items.map(m=>({...m,inference_available:true}))};},getCurves:s.getCurves.bind(s),getCurve:s.getCurve.bind(s),getChecks:s.getChecks.bind(s),getArtifacts:s.getArtifacts.bind(s),predict:fail?vi.fn().mockRejectedValue(new Error('Model service unavailable')):vi.fn().mockResolvedValue(response)};
+  return {mode:'api',getSnapshot:s.getSnapshot.bind(s),getHealth:async()=>({status:'ok',model_loaded:true,prediction_available:true,active_model_id:'tcn-full'}),getModels:async()=>{const m=await s.getModels();return {...m,items:m.items.map(m=>({...m,inference_available:true}))};},getCurves:async()=>{const list=await s.getCurves();return {...list,items:list.items.map(c=>({...c,partition:'test'}))};},getCurve:async(id)=>({...await s.getCurve(id),partition:'test'}),getChecks:s.getChecks.bind(s),getArtifacts:s.getArtifacts.bind(s),predict:fail?vi.fn().mockRejectedValue(new Error('Model service unavailable')):vi.fn().mockResolvedValue(response)};
 }
 describe('Workspace routes and real data',()=>{
   it('renders every requested page against the actual snapshot',()=>{for(const path of ['/overview','/quality','/batches','/batches/20','/duplicates','/distributions','/physics','/curves','/experiments/pilot','/experiments/full','/predict','/provenance']){const html=renderToString(<MemoryRouter initialEntries={[path]}><DataProvider initialSnapshot={snapshot} service={new SnapshotService('',snapshot)}><App/></DataProvider></MemoryRouter>);expect(html).toContain('<h1>');expect(html).not.toContain('NaN%');}});
@@ -94,17 +94,17 @@ describe('Workspace routes and real data',()=>{
   it('searches the complete quality registry and opens actual evidence',async()=>{view('/quality');await userEvent.click(screen.getByRole('button',{name:/All \d+ checks/}));await userEvent.type(screen.getByRole('textbox',{name:'Search quality checks'}),'HLC equals');await userEvent.click(screen.getByRole('button',{name:'HLC equals the sum of its boundaries'}));expect(screen.getByRole('dialog')).toHaveTextContent('HLC_sum_failures');await userEvent.click(screen.getByRole('button',{name:'Close evidence'}));expect(screen.queryByRole('dialog')).not.toBeInTheDocument();});
 });
 describe('Prediction workflow; inference responses are mocked contract tests',()=>{
-  it('previews a real example but keeps snapshot inference disabled',async()=>{view('/predict');await waitFor(()=>expect(screen.getByRole('button',{name:/Load recording/})).toBeEnabled());await userEvent.click(screen.getByRole('button',{name:/Load recording/}));expect(await screen.findByText('480 aligned readings validated')).toBeInTheDocument();expect(screen.getByRole('button',{name:/Run prediction/})).toBeDisabled();expect(screen.queryByText('Response received')).not.toBeInTheDocument();});
+  it('does not offer unlabeled offline examples as held-out test data',async()=>{view('/predict');expect(await screen.findByRole('option',{name:'No test recordings available'})).toBeInTheDocument();expect(screen.getByRole('button',{name:/Load recording/})).toBeDisabled();expect(screen.getByRole('button',{name:/Run prediction/})).toBeDisabled();expect(screen.queryByText('Response received')).not.toBeInTheDocument();});
   it('sends actual input and renders only a successful service response',async()=>{const service=apiFixture();view('/predict',service);await waitFor(()=>expect(screen.getByRole('button',{name:/Load recording/})).toBeEnabled());await userEvent.click(screen.getByRole('button',{name:/Load recording/}));await userEvent.click(screen.getByRole('button',{name:/Run prediction/}));expect(await screen.findByText('Response received')).toBeInTheDocument();expect(service.predict).toHaveBeenCalledWith({model_id:'tcn-full',...recording,sampling_interval_seconds:null},expect.any(AbortSignal));await userEvent.selectOptions(screen.getByRole('combobox',{name:'Prediction model'}),'mlp-full');expect(screen.queryByText('Response received')).not.toBeInTheDocument();});
   it('compares known targets only for the loaded saved recording',async()=>{
     const service=apiFixture();const getCurve=service.getCurve;
-    service.getCurve=async(id,signal)=>({...await getCurve(id,signal),ground_truth:response.predictions,partition:'train'});
+    service.getCurve=async(id,signal)=>({...await getCurve(id,signal),ground_truth:response.predictions,partition:'test'});
     view('/predict',service);
     await waitFor(()=>expect(screen.getByRole('button',{name:/Load recording/})).toBeEnabled());
     await userEvent.click(screen.getByRole('button',{name:/Load recording/}));
     await userEvent.click(screen.getByRole('button',{name:/Run prediction/}));
     expect(await screen.findByRole('table',{name:'Known values compared with predictions'})).toBeInTheDocument();
-    expect(screen.getByText('train').closest('p')).toHaveTextContent('Recording partition: train');
+    expect(screen.getByText('test').closest('p')).toHaveTextContent('This recording was not used for training.');
     expect(service.predict).toHaveBeenCalledWith({model_id:'tcn-full',...recording,sampling_interval_seconds:null},expect.any(AbortSignal));
     await userEvent.click(screen.getByRole('button',{name:/Clear input/}));
     expect(screen.queryByRole('table',{name:'Known values compared with predictions'})).not.toBeInTheDocument();
